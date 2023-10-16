@@ -146,7 +146,10 @@ module  MoxiworksPlatform
       raise ::MoxiworksPlatform::Exception::ArgumentError,
             'arguments must be passed as named parameters' unless opts.is_a? Hash
       url ||= "#{MoxiworksPlatform::Config.url}/api/action_logs"
-      required_opts = [:moxi_works_agent_id, :partner_contact_id, :title, :body]
+      agent_identifier = opts[:moxi_works_agent_id] || opts[:agent_uuid]
+      raise ::MoxiworksPlatform::Exception::ArgumentError, "#agent_uuid or moxi_works_agent_id required" if
+        agent_identifier.blank?
+      required_opts = [:partner_contact_id, :title, :body]
       required_opts.each do |opt|
         raise ::MoxiworksPlatform::Exception::ArgumentError, "#{opt} required" if
             opts[opt].nil? or opts[opt].to_s.empty?
