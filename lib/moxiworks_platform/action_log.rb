@@ -131,7 +131,8 @@ module  MoxiworksPlatform
     #
     # @param [String] method The HTTP method to be used when connecting; ex: :put, :post, :get
     # @param [Hash] opts
-    # @option opts [String]  :moxi_works_agent_id *REQUIRED* The Moxi Works Agent ID for the agent to which this ActionLog entry is associated
+    # @option opts [String]  :moxi_works_agent_id  *REQUIRED* -- either :moxi_works_agent_id or :agent_uuid is required -- The Moxi Works Agent ID for the agent
+    # @option opts [String]  :agent_uuid *REQUIRED* -- either :moxi_works_agent_id or :agent_uuid is required -- The Moxi Works Agent ID for the agent
     # @option opts [String]  :partner_contact_id *REQUIRED* Your system's unique ID for the contact for whom the ActionLog entry is being created.
     # @option opts [String]  :title *REQUIRED*  A brief title for this ActionLog entry (85 characters or less)
     # @option opts [String]  :body *REQUIRED*  The body of this ActionLog entry (255 characters or less)
